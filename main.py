@@ -8,6 +8,8 @@ import numpy as np
 from filters.blush    import apply_blush
 from filters.cat_ears import apply_cat_ears
 from filters.hearts   import apply_hearts
+from filters.star_face import apply_star_face
+
 
 app = FastAPI()
 
@@ -51,6 +53,8 @@ async def apply_filter(request: FilterRequest):
         img = apply_cat_ears(img)
     elif f == "hearts":
         img = apply_hearts(img)
+    elif f == "star_face":
+        img = apply_star_face(img)
 
     return {"image": encode_image(img)}
 
